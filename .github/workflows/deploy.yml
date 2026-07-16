@@ -1,4 +1,4 @@
-name: Deploy Jekyll site to external repository
+name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
     paths:
       - 'website/**'
       - '.github/workflows/deploy.yml'
+
+permissions:
+  contents: write
 
 jobs:
   build_and_deploy:
@@ -28,10 +31,9 @@ jobs:
           bundle install
           bundle exec jekyll build
 
-      - name: Deploy to daniloalsilva/whichcar.com
+      - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: daniloalsilva/whichcar.com
-          publish_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./website/_site
