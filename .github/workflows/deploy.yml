@@ -28,10 +28,10 @@ jobs:
           bundle install
           bundle exec jekyll build
 
-      - name: Deploy to daniloalsilva/whichbike.com
+      - name: Deploy to daniloalsilva/whichcar.com
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: daniloalsilva/whichbike.com
+          external_repository: daniloalsilva/whichcar.com
           publish_branch: main
           publish_dir: ./website/_site
