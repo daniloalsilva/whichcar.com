@@ -2,5 +2,8 @@
   "brands_done": [
     "volvo.yml"
   ],
-  "in_progress": null
+  "in_progress": {
+    "brand": "chevrolet.yml",
+    "model_idx": 2
+  }
 }

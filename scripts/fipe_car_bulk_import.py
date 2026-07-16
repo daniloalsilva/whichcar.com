@@ -200,7 +200,7 @@ def build_entry(brand_display, label, brand_id, model_id, years_list, ref):
                 candidates.append((int(val), y))
         if not candidates:
             return None
-        candidates.sort(reverse=True)
+        candidates.sort(key=lambda x: x[0], reverse=True)
         best_year_entry = candidates[0][1]
 
     year_int = 2026 if is_new else int(best_year_entry["Value"].split("-")[0])
